@@ -40,11 +40,7 @@ def create_app(env_mode = os.environ.get("FLASK_ENV")):
     print(app.config.get("SECRET_KEY"))
     
     print(app.config.get("SESSION_COOKIE_SECURE"))
-    app.config['JWT_ACCESS_TOKEN_SECRET_KEY'] = 'JWT_ACCESS_SECRET_KEY'
-    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(seconds=30)  
-    app.config['JWT_REFRESH_TOKEN_SECRET_KEY'] = 'JWT_REFRESH_SECRET_KEY'
-    app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(minutes=3)  
-    app.config['JWT_REFRESH_TOKEN_RENEW_THRESHOLD'] = timedelta(minutes=1)
+
 
    
     app.config['JWT_COOKIE_SECURE'] = True  # Set to True in production with HTTPS
