@@ -1,0 +1,26 @@
+# Byte-compiled files
+*.pyc
+
+# Environment directory
+/.venv
+
+# IDE files
+.vscode/
+.idea/
+
+**/*.log.*
+**/*.log
+**/__pycache__/
+
+!**/error.log
+!**/my_log.log
+
+
+**/*.coverage
+**/.coverage
+
+
+**/*.env
+
+
+**/*.db
