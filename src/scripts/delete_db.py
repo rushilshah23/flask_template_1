@@ -9,5 +9,4 @@ app = create_app()
 with app.app_context():
     db = DBAdapter(db_name=app.config.get("DB_URL"))
 
-    db.init_db()
-    db.create_user("admin","admin@gmail.com","123456")
+    db.delete_db()

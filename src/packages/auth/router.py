@@ -8,24 +8,6 @@ def create_auth_blueprint(app:Flask):
     router = Blueprint("auth",__name__)
     
 
-    # @router.get("/")
-    # def index():
-    #     return "user authenticated"
-
-
-    # @router.post("/register")
-    # def register():
-    #     return "User registered !"
-
-    # @router.post("/login")
-    # def login():
-    #     return "User logged in !"
-
-
-
-
-
-
     @router.post("/login")
     def login_admin():
         if not request.is_json:
@@ -73,6 +55,10 @@ def create_auth_blueprint(app:Flask):
     def refresh_token():
 
         curr_refresh_token: str | None = request.cookies.get('refresh_token')
+        if curr_refresh_token == None:
+            curr_refresh_token = request.headers.get("refresh_token")
+        
+        
 
         decoded_curr_refresh_token = app.jwt_manager.verify_refresh_jwt_in_request(curr_refresh_token)
         if not decoded_curr_refresh_token:
@@ -95,5 +81,10 @@ def create_auth_blueprint(app:Flask):
 
         return resp
 
+
+
+    @router.get("/authenticate")
+    def authenticate():
+        pass
 
     return router

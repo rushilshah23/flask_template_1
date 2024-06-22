@@ -45,7 +45,7 @@ import bcrypt
 from src.utils.logger import app_logger
 
 class DBAdapter:
-    def __init__(self, db_name: str = "generic.db"):
+    def __init__(self, db_name:str):
         self.db_name = db_name
 
     def get_connection(self):
@@ -67,6 +67,16 @@ class DBAdapter:
             conn.executescript(f.read())
             conn.commit()
         print("Database initialized!")
+
+
+    def delete_db(self):
+        print("Curr dir - ",os.getcwd())
+        os.unlink(self.db_name)
+        # with open("./src/scripts/delete_db.sql", "r") as f:
+        #     conn = self.get_connection()
+        #     conn.executescript(f.read())
+        #     conn.commit()
+        # print("Database deleted!")
 
     def get_user(self, username, password):
         conn = self.get_connection()

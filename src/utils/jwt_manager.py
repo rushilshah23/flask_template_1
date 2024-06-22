@@ -59,11 +59,9 @@ class JWTManager:
             identity = self.verify_access_jwt_in_request()
 
             if not identity:
-                print("Idntity not valid")
                 # return redirect(url_for('render_admin_login'))
                 return make_response(jsonify({"msg":"UnAuthenticated user"}), HTTPStatus.UNAUTHORIZED)
 
-            print("Identity  valid")
             return f(identity,*args, **kwargs)
         return decorated_function
     

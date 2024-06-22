@@ -21,6 +21,8 @@
 
 
 **/*.env
+!**/dev.env
+!**/test.env
 
 
 **/*.db
