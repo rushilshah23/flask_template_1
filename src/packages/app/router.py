@@ -13,6 +13,6 @@ def create_web_app(app):
 
     @web_app.get("/")
     def index():
-        return " WEB APP" 
+        return " WEB APP V3" 
     
     return web_app

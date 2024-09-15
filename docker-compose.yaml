@@ -1,0 +1,12 @@
+services:
+  app:
+    image: auth-flask-compose
+    build: .
+    container_name: auth-flask
+    # command: python3 -m flask --app src/app run --debug
+    command: python3 run.py
+
+    ports:
+      - 9000:80
+    volumes:
+      - .:/app
